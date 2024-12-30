@@ -14,7 +14,7 @@ const Menu = () => {
     // Fetch data from the backend
     const fetchData = async () => {
       try {
-        const response = await fetch("menu.json");
+        const response = await fetch(`http://localhost:6001/menu`);
         const data = await response.json();
         setMenu(data);
         setFilteredItems(data); // Initially, display all items
@@ -92,8 +92,8 @@ const Menu = () => {
             </h2>
             <p className="text-[#4A4A4A] text-xl md:w-4/5 mx-auto">
               Come with family & feel the joy of mouthwatering food such as
-              Greek Salad, Mocktails, Pizzas, Creamy Soups, Chocolate Bomb
-               and many more for a moderate cost
+              Greek Salad, Lasagne, Butternut Pumpkin, Tokusen Wagyu, Olivas
+              Rellenas and more for a moderate cost
             </p>
             <button className="bg-green font-semibold btn text-white px-8 py-3 rounded-full">
               Order Now
@@ -167,15 +167,15 @@ const Menu = () => {
         </div>
 
         {/* product card */}
-        <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 ">
-          {currentItems.map((item) => (
-            <Cards key={item._id} item={item} />
+        <div className="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-4 ">
+          {currentItems.map((item, index) => (
+            <Cards key={index} item={item} />
           ))}
         </div>
       </div>
 
        {/* Pagination */}
-       <div className="flex justify-center my-8">
+       <div className="flex justify-center my-8 flex-wrap gap-2">
         {Array.from({ length: Math.ceil(filteredItems.length / itemsPerPage) }).map((_, index) => (
           <button
             key={index + 1}
