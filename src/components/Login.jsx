@@ -39,8 +39,8 @@ const Login = () => {
           .post("/users", userInfor)
           .then((response) => {
             // console.log(response);
-            alert("Signin successful!");
             navigate(from, { replace: true });
+            alert("Signin successful!");
           });
         // console.log(user);
         // ...

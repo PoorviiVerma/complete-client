@@ -28,6 +28,7 @@ const Modal = () => {
       .then((result) => {
         // Signed in
         const user = result.user;
+        
         const userInfor = {
           name: data.name,
           email: data.email,
@@ -38,7 +39,7 @@ const Modal = () => {
             // console.log(response);
             alert("Signin successful!");
             navigate(from, { replace: true });
-          });
+          })
         // console.log(user);
         // ...
       })
@@ -55,9 +56,11 @@ const Modal = () => {
     signUpWithGmail()
       .then((result) => {
         const user = result.user;
+       
         const userInfor = {
           name: result?.user?.displayName,
           email: result?.user?.email,
+          
         };
         axios
           .post("http://localhost:6001/users", userInfor)
@@ -65,7 +68,7 @@ const Modal = () => {
             // console.log(response);
             alert("Signin successful!");
             navigate("/");
-          });
+          })
       })
       .catch((error) => console.log(error));
   };

@@ -80,10 +80,13 @@ const CheckoutForm = ({price, cart}) => {
               quantity: cart.length,
               status: "Order pending",
               itemName: cart.map(item => item.name),
-              cartItem: cart.map(item => item._id),
+              cartItems: cart.map(item => item._id),
               menuItems: cart.map(item => item.menuItemId)
             }
             console.log(paymentInfo);
+
+            
+            // send information to backend
             axiosSecure.post('/payments', paymentInfo)
             .then( res => {
               console.log(res.data);
