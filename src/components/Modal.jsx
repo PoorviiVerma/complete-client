@@ -34,7 +34,7 @@ const Modal = () => {
           email: data.email,
         };
         axios
-          .post("http://localhost:6001/users", userInfor)
+          .post("https://foodstruck.onrender.com/users", userInfor)
           .then((response) => {
             // console.log(response);
             alert("Signin successful!");
@@ -63,7 +63,7 @@ const Modal = () => {
           
         };
         axios
-          .post("http://localhost:6001/users", userInfor)
+          .post("https://foodstruck.onrender.com/users", userInfor)
           .then((response) => {
             // console.log(response);
             alert("Signin successful!");
